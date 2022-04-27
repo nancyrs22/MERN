@@ -47,6 +47,7 @@ const pkmnIds = pokemon.map( p => p.id )
 
 const pkmVolador = pokemon.filter(p => p.types[1] ==="flying").map(p=> p.types);
 console.log(pkmVolador);
+
 // const tipoNormal = pokemon.filter(p => p.types[0]=="normal" || p.types[1]=="normal");
 // console.log(tipoNormal.length);
 
