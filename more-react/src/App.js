@@ -1,8 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from 'react';
 import Persona from './componentes/Persona/Persona';
 import OtroComponente from './componentes/OtroComponente/OtroComponente';
+import PersonaFuncional from './componentes/PersonaFuncional/PersonaFuncional';
+import Formulario from './componentes/Formulario/Formulario';
 
 class App extends React.Component {
 
@@ -10,10 +12,13 @@ class App extends React.Component {
   {
     return (
       <div className="App">
+        <Formulario/>
         <h1>Componente de clase</h1>
         <Persona nombre="Helena" apellido="de Troya" lugar="Lima"/>
         <Persona nombre="Juana" apellido="de Arco" lugar="Paris"/>
         <Persona nombre="Pedro" apellido="Paramo" lugar="Nueva Yorck"/>
+        <PersonaFuncional nombre="Esteban" apellido="Quito" lugar="Noruega"/>
+        
         <OtroComponente>
           <ul>
             <li>Esta es una lista del elemento hijo</li>

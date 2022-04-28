@@ -22,7 +22,7 @@ class PersonaCard extends React.Component{
 
         return(
             <div className="card">
-                <h2>{lastName} {firstName}</h2>
+                <h2>{lastName}, {firstName}</h2>
                 <p>Age: {this.state.age}</p>
                 <p>Hair Color: {hairColor}</p>
                 <button className="btn btn-success" onClick={this.aumentarEdad}>Birthday Button for {firstName} {lastName}</button>
