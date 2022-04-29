@@ -43,7 +43,7 @@ class Persona extends React.Component{
                 {/* <h2>{this.props.nombre} {this.props.apellido}</h2>
                 <p>{this.props.lugar}</p> */}
                 <h2>{nombre} {apellido}</h2>
-                <p id="lugar">{lugar}</p>
+                <p id="lugar">{lugar} {lugar ==="Paris" ? "Oh la la!":"Wow!"}</p>
                 <p>Estado Civil: {this.state.edoCivil}</p>
                 {/* <button className="btn btn-warning" onClick={this.hizoClick}>Boton Persona</button> */}
                 <button className="btn btn-warning" onClick={this.cambiarEdoCivil}>Boton Persona</button>
