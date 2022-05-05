@@ -1,0 +1,5 @@
+https://pokeapi.co/api/v2/pokemon/pikachu
+https://pokeapi.co/api/v2/pokemon/150
+https://pokeapi.co/api/v2/berry-firmness/5
+https://pokeapi.co/api/v2/berry-flavor/spicy
+https://pokeapi.co/api/v2/evolution-trigger/1
