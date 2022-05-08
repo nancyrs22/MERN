@@ -1,0 +1,260 @@
+ use "my_first_db"
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shellhelp2):1:24
+> use my_first_db
+switched to db my_first_db
+> db.createCollection('estudiantes')
+{ "ok" : 1 }
+> db.estudiantes.insert({name:"Elsa",home_state:"Lima",lucky_number:9,birthday:{month:5,day:14,year:1995}})
+WriteResult({ "nInserted" : 1 })
+> db.estudiantes.find().pretty()
+{
+        "_id" : ObjectId("6273fdcf968fe2da7c8c4131"),
+        "name" : "Elsa",
+        "home_state" : "Lima",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 5,
+                "day" : 14,
+                "year" : 1995
+        }
+}
+> db.estudiantes.insert({name:"Elvis",home_state:"Junin",lucky_number:5,birthday:{month:3,day:25,year:1985}})
+WriteResult({ "nInserted" : 1 })
+> db.estudiantes.insert({name:"Ana",home_state:"Loreto",lucky_number:12,birthday:{month:12,day:30,year:1999}})
+WriteResult({ "nInserted" : 1 })
+> db.estudiantes.insert({name:"Esteban",home_state:"Arequipa",lucky_number:15,birthday:{month:6,day:22,year:2009}})
+WriteResult({ "nInserted" : 1 })
+> db.estudiantes.insert({name:"Sofia",home_state:"Ica",lucky_number:36,birthday:{month:8,day:1,year:1929}})
+WriteResult({ "nInserted" : 1 })
+> db.estudiantes.find().pretty()
+{
+        "_id" : ObjectId("6273fdcf968fe2da7c8c4131"),
+        "name" : "Elsa",
+        "home_state" : "Lima",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 5,
+                "day" : 14,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("6273ff2b968fe2da7c8c4133"),
+        "name" : "Elvis",
+        "home_state" : "Junin",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 3,
+                "day" : 25,
+                "year" : 1985
+        }
+}
+{
+        "_id" : ObjectId("6273ff68968fe2da7c8c4135"),
+        "name" : "Ana",
+        "home_state" : "Loreto",
+        "lucky_number" : 12,
+        "birthday" : {
+                "month" : 12,
+                "day" : 30,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("6273ff8f968fe2da7c8c4137"),
+        "name" : "Esteban",
+        "home_state" : "Arequipa",
+        "lucky_number" : 15,
+        "birthday" : {
+                "month" : 6,
+                "day" : 22,
+                "year" : 2009
+        }
+}
+{
+        "_id" : ObjectId("6273ffc2968fe2da7c8c4139"),
+        "name" : "Sofia",
+        "home_state" : "Ica",
+        "lucky_number" : 36,
+        "birthday" : {
+                "month" : 8,
+                "day" : 1,
+                "year" : 1929
+        }
+}
+> db.estudiantes.find({home_state:"Lima"}).pretty()
+{
+        "_id" : ObjectId("6273fdcf968fe2da7c8c4131"),
+        "name" : "Elsa",
+        "home_state" : "Lima",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 5,
+                "day" : 14,
+                "year" : 1995
+        }
+}
+> db.estudiantes.find({lucky_number:{$gt:3}}).pretty()
+{
+        "_id" : ObjectId("6273fdcf968fe2da7c8c4131"),
+        "name" : "Elsa",
+        "home_state" : "Lima",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 5,
+                "day" : 14,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("6273ff2b968fe2da7c8c4133"),
+        "name" : "Elvis",
+        "home_state" : "Junin",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 3,
+                "day" : 25,
+                "year" : 1985
+        }
+}
+{
+        "_id" : ObjectId("6273ff68968fe2da7c8c4135"),
+        "name" : "Ana",
+        "home_state" : "Loreto",
+        "lucky_number" : 12,
+        "birthday" : {
+                "month" : 12,
+                "day" : 30,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("6273ff8f968fe2da7c8c4137"),
+        "name" : "Esteban",
+        "home_state" : "Arequipa",
+        "lucky_number" : 15,
+        "birthday" : {
+                "month" : 6,
+                "day" : 22,
+                "year" : 2009
+        }
+}
+{
+        "_id" : ObjectId("6273ffc2968fe2da7c8c4139"),
+        "name" : "Sofia",
+        "home_state" : "Ica",
+        "lucky_number" : 36,
+        "birthday" : {
+                "month" : 8,
+                "day" : 1,
+                "year" : 1929
+        }
+}
+> db.estudiantes.find({lucky_number:{$lte:10}}).pretty()
+{
+        "_id" : ObjectId("6273fdcf968fe2da7c8c4131"),
+        "name" : "Elsa",
+        "home_state" : "Lima",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 5,
+                "day" : 14,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("6273ff2b968fe2da7c8c4133"),
+        "name" : "Elvis",
+        "home_state" : "Junin",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 3,
+                "day" : 25,
+                "year" : 1985
+        }
+}
+> db.estudiantes.find({lucky_number:{$gt:1,$lt:9}}).pretty()
+{
+        "_id" : ObjectId("6273ff2b968fe2da7c8c4133"),
+        "name" : "Elvis",
+        "home_state" : "Junin",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 3,
+                "day" : 25,
+                "year" : 1985
+        }
+}
+> db.estudiantes.find({lucky_number:{$gte:1,$lte:9}}).pretty()
+{
+        "_id" : ObjectId("6273fdcf968fe2da7c8c4131"),
+        "name" : "Elsa",
+        "home_state" : "Lima",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 5,
+                "day" : 14,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("6273ff2b968fe2da7c8c4133"),
+        "name" : "Elvis",
+        "home_state" : "Junin",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 3,
+                "day" : 25,
+                "year" : 1985
+        }
+}
+> db.estudiantes.remove({home_state:"Arequipa"})
+WriteResult({ "nRemoved" : 1 })
+> db.estudiantes.find().pretty()
+{
+        "_id" : ObjectId("6273fdcf968fe2da7c8c4131"),
+        "name" : "Elsa",
+        "home_state" : "Lima",
+        "lucky_number" : 9,
+        "birthday" : {
+                "month" : 5,
+                "day" : 14,
+                "year" : 1995
+        }
+}
+{
+        "_id" : ObjectId("6273ff2b968fe2da7c8c4133"),
+        "name" : "Elvis",
+        "home_state" : "Junin",
+        "lucky_number" : 5,
+        "birthday" : {
+                "month" : 3,
+                "day" : 25,
+                "year" : 1985
+        }
+}
+{
+        "_id" : ObjectId("6273ff68968fe2da7c8c4135"),
+        "name" : "Ana",
+        "home_state" : "Loreto",
+        "lucky_number" : 12,
+        "birthday" : {
+                "month" : 12,
+                "day" : 30,
+                "year" : 1999
+        }
+}
+{
+        "_id" : ObjectId("6273ffc2968fe2da7c8c4139"),
+        "name" : "Sofia",
+        "home_state" : "Ica",
+        "lucky_number" : 36,
+        "birthday" : {
+                "month" : 8,
+                "day" : 1,
+                "year" : 1929
+        }
+}
+> db.estudiantes.remove({name:"Sofia"})
+WriteResult({ "nRemoved" : 1 })

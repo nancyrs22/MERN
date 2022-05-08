@@ -30,10 +30,10 @@ import MyComponent from './componentes/MyComponent/MyComponent';
 // }
 
 function App() {
-  const [currentMsg, setCurrentMsg] = useState("There are no messages");
-  
-  const youveGotMail = ( newMessage ) => {
-      setCurrentMsg( newMessage );
+    const [currentMsg, setCurrentMsg] = useState("There are no messages");
+
+    const youveGotMail = ( newMessage ) => {
+    setCurrentMsg( newMessage );
   }
   
   return (
