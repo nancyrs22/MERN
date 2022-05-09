@@ -66,6 +66,7 @@ class App extends React.Component {
         </OtroComponente>
         <button className="btn btn-success" onClick={() =>alert("Hiciste click!")}>Haz click aqui</button>
         <ComponenteFuncional num={5} aumento={2} />
+        <ComponenteAPI></ComponenteAPI>
       </div>
     );
   }
