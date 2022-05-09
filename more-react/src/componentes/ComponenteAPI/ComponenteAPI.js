@@ -18,7 +18,7 @@ const ComponenteAPI = () => {
 
     return(
         <div>
-            <p src={texto}></p>
+            <p>{texto}</p>
             <br></br>
             <button className="btn btn-primary" onClick={hizoClick}>Mostrar Pokemon</button>
         </div>
