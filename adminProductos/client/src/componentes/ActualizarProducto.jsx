@@ -1,35 +1,40 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
-const NuevoProducto = () =>{
+const ActualizarProducto = () => {
+    const {id} = useParams();
     const [nombre, setNombre] = useState("");
     const [precio,setPrecio] = useState("");
     const [descripcion, setDescripcion] = useState("");
     const history = useHistory();
 
-    //Funcion para guardar conexion a backend
-    const guardarProducto = e => {
-        e.preventDefault();
-        axios.post("http://localhost:8000/api/productos/",{
-            nombre,precio,descripcion
-            // name:nombre,             es otra forma de hacerlo si se quisiera poner otro nombre de variable
-            // price:precio,
-            // description:descripcion
-        })
-            .then(res => {
-                console.log(res);
-                history.push("/");
+    useEffect(()=>{
+
+        axios.get("http://localhost:8000/api/productos/"+id)
+            .then(res=>{
+                console.log(res.data);
+                setNombre(res.data.nombre);
+                setPrecio(res.data.precio);
+                setDescripcion(res.data.descripcion);
             })
-            .catch(err => {
-                console.log(err);
-            });
+            .catch(err=>console.log(err));
+
+    },[])
+
+    const actualizarProducto = e =>{
+        e.preventDefault();
+        axios.put("http://localhost:8000/api/productos/"+id,{
+            nombre,precio, descripcion
+        })
+            .then(res => history.push("/"))
+            .catch(err=>console.log(err));
     }
 
     return(
         <div>
-            <h1>Nuevo producto</h1>
-            <form onSubmit={guardarProducto}>
+            <h1>Editar Producto</h1>
+            <form onSubmit={actualizarProducto}>
                 <div className="form-group">
                     <label htmlFor="nombre">Nombre: </label>
                     <input id="nombre" name="nombre" type="text" className="form-control" value={nombre} onChange={(e)=> setNombre(e.target.value)}/>
@@ -46,6 +51,7 @@ const NuevoProducto = () =>{
             </form>
         </div>
     )
+
 }
 
-export default NuevoProducto;
+export default ActualizarProducto;
