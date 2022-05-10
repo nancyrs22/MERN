@@ -26,7 +26,7 @@ const TodosProductos = () => {
         <div>
             <h1>Todos los productos</h1>
             <Link className="btn btn-success" to="/nuevo">Nuevo Producto</Link>
-            <table>
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         <th>Nombre</th>

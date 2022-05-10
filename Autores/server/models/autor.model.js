@@ -1,0 +1,27 @@
+const mongoose = require("mongoose");
+
+const EsquemaAutor = new mongoose.Schema({
+    nombre:{
+        type: String,
+        required: [true, "Campo obligatorio"],
+        minlength: [2, "Nombre debe tener al menos 2 caracteres"],
+        unique: [true, "El autor ya estaba dado de alta."]
+    },
+    imagen: String,
+    libros: {
+        type: Boolean,
+        default: false
+    },
+    novelagrafica:{
+        type:Boolean,
+        default:false
+    },
+    cuento:{
+        type:Boolean,
+        default:false
+    }
+}, {timestamps:true, versionKey:false})
+
+const Autor = mongoose.model("autores",EsquemaAutor);
+
+module.exports = Autor;
