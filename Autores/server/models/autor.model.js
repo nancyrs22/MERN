@@ -12,13 +12,17 @@ const EsquemaAutor = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    novelagrafica:{
-        type:Boolean,
-        default:false
+    articulos: {
+        type: Boolean,
+        default: false
     },
-    cuento:{
+    novelagrafica: {
         type:Boolean,
-        default:false
+        default: false
+    },
+    cuentos: {
+        type:Boolean,
+        default: false
     }
 }, {timestamps:true, versionKey:false})
 

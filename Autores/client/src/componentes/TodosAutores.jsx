@@ -41,10 +41,18 @@ const TodosAutores = () => {
                         autores.map((autor, index)=>(
                             <tr key={index}>
                                 <td>{autor.nombre}</td>
-                                <td><img className="img-fluid" src={autor.imagen}></img></td>
+                                <td><img className="img-fluid" src={autor.imagen} /></td>
                                 <td>
-                                    {autor.libros ? <span className="glyphicon glyphicon-ok text-success"></span> : 
-                                    <span className="glyphicon glyphicon-ok text-success"></span>}
+                                    { autor.libros ? <span className="glyphicon glyphicon-ok text-success"></span> : <span className="glyphicon glyphicon-remove text-danger"></span>}
+                                </td>
+                                <td>
+                                    { autor.articulos ? <span className="glyphicon glyphicon-ok text-success"></span> : <span className="glyphicon glyphicon-remove text-danger"></span>}
+                                </td>
+                                <td>
+                                    { autor.novelagrafica ? <span className="glyphicon glyphicon-ok text-success"></span> : <span className="glyphicon glyphicon-remove text-danger"></span>}
+                                </td>
+                                <td>
+                                    { autor.cuentos ? <span className="glyphicon glyphicon-ok text-success"></span> : <span className="glyphicon glyphicon-remove text-danger"></span>}
                                 </td>
                                 <td>{autor.createdAt}</td>
 

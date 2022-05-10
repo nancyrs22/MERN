@@ -15,7 +15,12 @@ const NuevoAutor = () =>{
     const guardarAutor = e => {
         e.preventDefault();
         axios.post("http://localhost:8000/api/autores/",{
-            nombre
+            nombre,
+            imagen,
+            libros,
+            articulos,
+            novelagrafica,
+            cuentos
             // name:nombre,             es otra forma de hacerlo si se quisiera poner otro nombre de variable
             // price:precio,
             // description:descripcion
@@ -35,24 +40,24 @@ const NuevoAutor = () =>{
                     {errors.nombre ? <span className="text-danger">{errors.nombre.message}</span>:null}
                 </div>
                 <div className="form-group">
-                    <label>URL Imagen</label>
-                    <input type="text" id="imagen" name="imagen" value={imagen} onChange={(e)=> setImagen(e.target.value)} className="form-control"></input>
+                    <label htmlFor="imagen">URL Imagen:</label>
+                    <input type="text" id="imagen" name="imagen" value={imagen} onChange={(e) => setImagen(e.target.value)} className="form-control" />
                 </div>
                 <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="libros" name="libros" checked={libros} onChange={(e)=> setLibros(e.target.checked)}></input>
+                    <input type="checkbox" className="form-check-input" id="libros" name="libros" checked={libros} onChange={(e) => setLibros(e.target.checked)} />
                     <label className="form-check-label" htmlFor="libros">Autor de libros</label>
                 </div>
                 <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="articulos" name="articulos" checked={articulos} onChange={(e)=> setArticulos(e.target.checked)}></input>
-                    <label className="form-check-label" htmlFor="articulos">Autor de articulos</label>
+                    <input type="checkbox" className="form-check-input" id="articulos" name="articulos" checked={articulos} onChange={(e) => setArticulos(e.target.checked)} />
+                    <label className="form-check-label" htmlFor="articulos">Autor de artículos</label>
                 </div>
                 <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="novelagrafica" name="novelagrafica" checked={novelagrafica} onChange={(e)=> setNovelagrafica(e.target.checked)}></input>
-                    <label className="form-check-label" htmlFor="novelagrafica">Autor de libros</label>
+                    <input type="checkbox" className="form-check-input" id="novelagrafica" name="novelagrafica" checked={novelagrafica} onChange={(e) => setNovelagrafica(e.target.checked)} />
+                    <label className="form-check-label" htmlFor="novelagrafica">Autor de Novelas Gráficas</label>
                 </div>
                 <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="cuentos" name="cuentos" checked={cuentos} onChange={(e)=> setCuentos(e.target.checked)}></input>
-                    <label className="form-check-label" htmlFor="cuentos">Autor de articulos</label>
+                    <input type="checkbox" className="form-check-input" id="cuentos" name="cuentos" checked={cuentos} onChange={(e) => setCuentos(e.target.checked)} />
+                    <label className="form-check-label" htmlFor="cuentos">Autor de Cuentos</label>
                 </div>
                 <input type="submit" className="btn btn-success" value="Guardar"></input>
             </form>
